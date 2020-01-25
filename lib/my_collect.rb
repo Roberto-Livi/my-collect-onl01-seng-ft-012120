@@ -1,22 +1,9 @@
-def my_collect(students, language)
-  if students.length == 0
-    puts "There are no members!"
-  end
+def my_collect(array)
   i = 0
-  members_collection = []
-  while students.length > i
-  members_collection << yield(students[i])
-  i += 1
+  collection = []
+  while array.length > i
+    collection << yield(array[i])
+    i += 1
   end
-  members_collection
-  y = 0
-  upcase_language = []
-  while language.length > y
-    upcase_language << yield(language)
-    y += 1
-    end
-  upcase_language
+  collection
 end
-
-my_collect(["Tom Jones", "Tom Smith", "Jim Campagno"]) {|name| "Hello, #{name.split(" ".first)}"}
-my_collect(["ruby", "javascript", "python", "objective-c"]) {|l|"#{l.upcase}" }
